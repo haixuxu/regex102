@@ -1,0 +1,721 @@
+## 5.17.0 - 15th of October, 2021
+
+1. Added ability to load examples from the quickref.
+
+   Do note that they will overwrite the content in the inputs,
+   but you can undo it by using ctrl+z
+
+2. Improved performance of regex editor
+
+   - Improved the efficiency of the matches being painted on the screen
+   - Added dynamic mechanism to detect when regex matching is falling behind input speed
+
+3. Fixed issue where elements highlighted by hovering were not always cleared
+
+## 5.16.2 - 10th of October, 2021
+
+1. Improved server application performance.
+
+   Analyzed db performance using [eversql.com](https://eversql.com).
+   Thank you Tomer!
+
+   Hopefully you will experience a quicker regex library and website over all!
+
+2. Fix issue where highlighted matches would sometimes get "stuck" after hovering
+
+3. Remove dependency on transparent canvas
+
+   This might improve performance, it might have no noticeable difference.
+
+4. Fix edge cases where canvas could appear janky
+
+## 5.16.1 - 10th of October, 2021
+
+1. Fix regression when painting match results on canvas (thanks digitok for reporting)
+
+## 5.16.0 - 8th of October, 2021
+
+1. Add support for named backreferences in JS substitution mode. See [https://github.com/firasdib/Regex101/issues/1652](https://github.com/firasdib/Regex101/issues/1652)
+
+2. Fix parsing of escaped dollar signs in JS substitution mode.
+
+3. Add tests to task 15. See [https://github.com/firasdib/Regex101/issues/1645](https://github.com/firasdib/Regex101/issues/1645)
+
+## 5.15.3 - 8th of October, 2021
+
+1. Improve error handling of recursion related errors
+
+2. Improve handling of escaped text literals and unicode
+
+3. Update codemirror to latest version
+
+4. Updated translations
+
+5. Improved handling of links in the header on smaller screens
+
+## 5.15.0 - 22nd of September, 2021
+
+1. Added support for new `d` flag in JavaScript
+
+## 5.14.1 - 3rd of September, 2021
+
+1. Fix collating posix class parsing
+
+2. Ensure `performance` is polyfilled properly
+
+## 5.14.0 - 9th of August, 2021
+
+1. Slightly darken theme color for the light theme
+
+2. Add new option to disable the default tabbing behavior.
+
+   This options allows you to decide what should happen when you hit the tab key:
+
+   1. Switch to the next field in the document (default)
+
+   2. Consume the tab key and insert a tab character
+
+3. Fix explanation of `\P`
+
+## 5.13.6 - 31st of July, 2021
+
+1. Add separate meta descriptions for the different sub pages
+
+2. Fix tooltip direction switching randomly in the account page
+
+3. Improve error handling when `\C` is used
+
+4. Fix character range check for surrogate pairs
+
+## 5.13.5 - 26th of July, 2021
+
+1. Copy behavior of Perl and disallow \K inside lookbehinds in PCRE. See [https://bugs.exim.org/show_bug.cgi?id=2792](https://bugs.exim.org/show_bug.cgi?id=2792)
+
+2. Fix minor issues with lookbehind length calculation in edge case scenarios
+
+3. Update quote token color in dark theme
+
+## 5.13.4 - 18th of July, 2021
+
+1. Fix issue where the scroll bar was unnecessarily shown for library entries
+
+2. Fix issue where page sometimes became non-interactable [https://github.com/firasdib/Regex101/issues/1618](https://github.com/firasdib/Regex101/issues/1618)
+
+## 5.13.3 - 13th of July, 2021
+
+1. Format large numbers to make them easier to read
+
+2. Code generator button is now disabled when in List Substitution mode to avoid confusion
+
+3. Fix posix class parser for PCRE and PCRE2
+
+## 5.13.2 - 11th of July, 2021
+
+1. Added tooltip to match indicator when unhandled errors are encountered (hover to view)
+
+2. Fix explanation of `\Q...\E` [https://github.com/firasdib/Regex101/issues/1614](https://github.com/firasdib/Regex101/issues/1614)
+
+## 5.13.1 - 10th of July, 2021
+
+1. Plain text explanation now shows code points in decimal, hex and octal
+
+   The explanation is collapsed by default to avoid creating too much noise.
+
+2. Plain text in the substitution box is now explained in a similar fashion to the regex input
+
+3. Adjusted styling and timing of tooltips
+
+   - Timing of tooltips has been adjusted slightly, they now trigger faster
+   - A drop shadow has been added to give them a bit of depth
+   - The closing animation for tooltips were broken, its now fixed
+   - Performance of tooltips has been improved slightly by using composite layers in the browser
+
+## 5.13.0 - 7th of July, 2021
+
+1. Fix regex parsing of relative subpattern references
+
+2. Handle error caused by nesting too many conditional replacements in PCRE2
+
+3. Disallow null bytes in regex
+
+4. Use high precision timers for calculating computational time spent in regex
+
+5. Update favicon and add more PWA support
+
+## 5.12.3 - 6th of July, 2021
+
+1. Fix java subst pattern parsing (hopefully once and for all)
+
+2. Fix subst conditional coloring not repeating properly
+
+3. Reworked substitution area to be more efficient. If you encounter any odd behavior, please report it as a bug on github.
+
+## 5.12.2 - 5th of July, 2021
+
+1. Improve paste performance further
+
+2. Fix issue with Java code generator [https://github.com/firasdib/Regex101/issues/1611](https://github.com/firasdib/Regex101/issues/1611)
+
+3. Remove the `2.7` part from the python flavor text
+
+4. Improved performance on initial page load
+
+## 5.12.1 - 1st of July, 2021
+
+1. Fix issue with `\Q...\E` when pasting regexes into the regex box (Thanks digitok)
+
+2. Disallow `\C` in lookbehinds in PCRE when enabling UTF16 mode
+
+3. Error if user places unescaped `{` inside conditionals in PCRE mode during substitution
+
+4. Fix numeric escapes sometimes not working in java substitution mode
+
+5. Update codemirror to latest version
+
+6. Fix lookbehind length calculation in x-mode
+
+7. Add proper surrogate pair parsing for java flavor
+
+## 5.12.0 - 25th of June, 2021
+
+1. Fixed typo in quickref for charclass intersection [https://github.com/firasdib/Regex101/issues/1598](https://github.com/firasdib/Regex101/issues/1598)
+
+2. Add support for `LD` unicode script in Java [https://github.com/firasdib/Regex101/issues/1590](https://github.com/firasdib/Regex101/issues/1590)
+
+3. Fix issue where relative backreferences could reference invalid groups
+
+4. Fixed issue where nested branch reset groups would not validate properly
+
+5. Added indicator for zero width character matches [https://github.com/firasdib/Regex101/issues/1593](https://github.com/firasdib/Regex101/issues/1593)
+
+6. Generate error when `\E` is encountered without a corresponding `\Q`
+
+7. Fix edge case in inline modifier parsing for Java flavor
+
+8. Disallow quantifiers inside lookbehinds for Python flavor
+
+9. Fix issue where unknown unicode categories were accepted for Java
+
+## 5.11.3 - 23rd of June, 2021
+
+1. Fix potential race condition when initially loading the page
+
+2. Add word-wrapping to user submitted descriptions to avoid page overflow issues
+
+## 5.11.2 - 11th of June, 2021
+
+1. Fix issue where quantifiers on certain tokens did not visually show up in explanation
+
+## 5.11.0 - Xth of May, 2021
+
+1. Fixed issue where `\8` and `\9` would not work in Java substitution strings
+
+2. Updated IRC link to Libera
+
+## 5.10.0 - 12th of May, 2021
+
+1. Fixed general unicode category for Java [https://github.com/firasdib/Regex101/issues/1570](https://github.com/firasdib/Regex101/issues/1570)
+
+2. Added new delimiters to javascript flavor
+
+3. Added highlight in regex input when clicking a group in the match info pane
+
+4. Emphasize negative unit tests with an underline
+
+5. Added nbsp to explanation for `\s` for python flavor
+
+## 5.9.0 - 19th of April, 2021
+
+1. Added ability to delete your account
+
+## 5.8.0 - 10th of April, 2021
+
+1. Added support for all verbs in PCRE2
+
+2. Fixed parsing of inline modifiers in golang [https://github.com/firasdib/Regex101/issues/1551](https://github.com/firasdib/Regex101/issues/1551)
+
+3. Fix library url after uploading entry
+
+4. Fix "My Library Entries" showing favorited entries
+
+5. Highlight the `not` part of the does not match in unit test
+
+6. Fix left sidebar options after updating library entry
+
+7. Fix error handling when using `\C`
+
+8. Fix debugger not handling empty data results
+
+9. Made `\E` not quantifiable
+
+10. Fixed some unicode property names for Java
+
+11. Fixed unit tests sometimes not running when they should due to race condition
+
+12. Remove truncating alternator check [https://github.com/firasdib/Regex101/issues/1556](https://github.com/firasdib/Regex101/issues/1556)
+
+## 5.7.1 - 24th of March, 2021
+
+1. Disallow backreferences inside character classes in Java
+
+2. Fix binary unicode properties in Java
+
+## 5.7.0 - 23rd of March, 2021
+
+1. Fix explanation of character class intersection for Java
+
+2. Fix regression in paste behavior [https://github.com/firasdib/Regex101/issues/1536](https://github.com/firasdib/Regex101/issues/1536)
+
+3. Hardened verification for relative subpattern references
+
+## 5.6.2 - 22nd of March, 2021
+
+1. Fixed issue with `?` shortcut on certain devices [https://github.com/firasdib/Regex101/issues/1529#issuecomment-797851128](https://github.com/firasdib/Regex101/issues/1529)
+
+2. Fixed regression in lookbehind quantifier validation for the PCRE flavor
+
+3. Removed `\n` from substitutiton tokens in the quick reference for PCRE2
+
+4. Hardened Java named backreference checker
+
+5. Updated text displayed when browser is deemed too old to explain what is missing.
+
+## 5.6.1 - 18th of March, 2021
+
+1. Fix flags not explained when declared in group construct
+
+2. Fix animation of left sidebar
+
+3. Fixed link in match error section after engine fails to load
+
+4. Fixed resize observer spamming error logs in quiz page
+
+## 5.6.0 - 16th of March, 2021
+
+1. Improved error handling
+
+2. Disabled the use of `\k` in character classes in JS to avoid errors in certain browsers
+
+3. Fixed issue when voting on certain library entries
+
+4. Fixed Unicode escapes `\uNNNN` in java, accidentally accepted `\u{NNNN}` syntax
+
+5. Disabled the use of quoted literals without any content as that has some ambiguous behavior
+
+6. Fixes explanation regression [https://github.com/firasdib/Regex101/issues/1531](https://github.com/firasdib/Regex101/issues/1531)
+
+## 5.5.3 - 15th of March, 2021
+
+1. Fix regression in Javascript unicode parsing [https://github.com/firasdib/Regex101/issues/1530](https://github.com/firasdib/Regex101/issues/1530)
+
+2. Add variable width lookbehind support to Java.
+   The quantifiers `*` and `+` are disabled due to dodgy support in Java 8.
+   In later versions (13+), the full regex syntax is supported (including backreferences).
+   For now, neither backreferences nor the mentioned quantifiers will function in Java 8 on regex101
+
+3. Fixed regression where `[^]` wasn't colored in JS mode
+
+4. Fixed bug where unit tests were not ran if the regex switched from an error state to a non-error state
+
+5. Disabled spell check for certain inputs where it was unnecessary/intrusive
+
+6. Added clear indicator whether any test failed in the unit test view
+
+7. Fixed subpattern parsing in subst mode for PCRE2
+
+8. Fixed edge case when parsing java character classes that could result in `]` being treated literally
+
+9. Fixed replacement in Java no handling trailing backslash properly
+
+## 5.5.2 - 14th of March, 2021
+
+1. Remove Disqus from library comments due to obscene ads
+
+2. Handle stack overflow errors in Java
+
+## 5.5.1 - 13th of March, 2021
+
+1. Fixed parsing of `\R` in Java
+
+2. Fixed parsing of named groups in Java
+
+3. Updated some quickref entries
+
+4. Fixed parsing of `\c` in PCRE2
+
+5. Fixed parsing of whitespace while using the `x` flag in Java
+
+## 5.5.0 - 12th of March, 2021
+
+1. Made descriptions mandatory for library entries
+
+2. Fixed library page not showing vote state on initial load
+
+3. Added vote buttons to library details page to make voting easier
+
+## 5.4.0 - 10th of March, 2021
+
+1. Fixed issue where zero width match could erase the color of a same match at the same position
+
+2. Added support for Java
+
+3. Improved explanations for substitution tokens
+
+4. Improved performance of the explanation engine
+
+5. Increased contrast of white space visualization
+
+6. Added link to regular-expressions.info when expressions time out
+
+7. Fixed the PCRE2 substitution parser not catching all invalid escape sequences
+
+## 5.3.1 - 6th of March, 2021
+
+1. Fix issue with group painting when `\K` was used
+
+2. Reduce size of export match button; makes it less obtrusive in the UI
+
+3. Fix match info table on smaller screens
+
+4. Fix monospaced font not applied properly in test area tooltips
+
+5. Fixed explanation for `\b` being double escaped
+
+## 5.3.0 - 5th of March, 2021
+
+1. Updated the token colors for both themes. They are now easier on the eyes and aligned between the two.
+
+2. Adjusted size of tooltips in editor
+
+3. Adjusted the wording of tooltips when hovering regex tokens in the editor
+
+4. Adjusted how \Q...\E is parsed and visualized in the editor.
+
+5. Reworked the match information panel and made the space usage a bit more efficient. Reduced the amount of coloring in that region as well.
+
+6. Updated styling of explanation area with regards to which items are highlighted and how.
+   The goal is to reduce eye strain and color overload, and only color things that matter.
+
+7. Adjusted wording in some of the explained entries.
+
+8. Updated some entries in the quickref related to PCRE2 modifiers
+
+9. Increased size of match export modal
+
+10. Fix menus not easily closable on mobile
+
+11. Fixed issue with library refetching entries unnecessarily
+
+12. Added opengraph meta tags to index.html
+
+13. Switched to source code pro as it seems to render better
+
+14. Increased stroke contrast when hovering a match
+
+## 5.2.8 - 25th of February, 2021
+
+1. Adjusted how loading is done for sub-pages (no more blurring)
+
+2. Quiz now makes a reduced amount of API calls for a better user experience
+
+3. Fixed vote buttons on library page being incorrectly focusable
+
+4. Improved contrast on library page
+
+5. Increase size of quiz statistics chart
+
+## Version 5.2.7 - 23rd of February, 2021
+
+1. Updated relevance sorting algorithm for library page
+
+2. Fixed bug where searches would randomly stop working on library page
+
+3. Fixed race condition in list substitution mode for js flavor
+
+4. Library entries now show their title in the header of the modal instead
+
+5. Made the group numbers in the match info area focusable using tab
+
+6. Added link to the debugger when catastrophic backtracking is detected
+
+7. Automatically focus the input field in library view
+
+8. Added button to easily navigate to library entry from regex editor
+
+9. Improved load times of the website and placed theme code earlier in execution pipeline to avoid incorrect theme flashing
+
+10. Fixed explanation of `\S` and `\W` in unicode mode.
+
+11. Automatically set document title for the different parts of the website
+
+12. Avoid transition flicker when loading pages on a fast connection
+
+13. Add clear button to certain inputs
+
+14. Update server configuration for better performance all around
+
+15. Fix bug where small screens would not properly resize the substitution area
+
+16. Fix issue where canvas would not repaint after closing the substitution area
+
+## Version 5.2.5 - 21st of February, 2021
+
+1. Reduced initial bundle size by code splitting more components that are not immediately necessary
+
+2. Fixed focus outline of treeview arrows
+
+3. Removed react-dom-server dependency (upstream react bug has since been fixed), further reducing bundle size
+
+4. Improved accessibility of buttons by adding disabled attribute where applicable
+
+5. Fixed surrogate validation for octal escapes
+
+6. Switched to new service worker plugin, hopefully this works better!
+
+7. Fixed multiple obscure issues reported by sentry, making the app more stable.
+
+8. Added indicators to unit tests, alleviates some of the trouble color blind people might have with the new design. See [https://github.com/firasdib/Regex101/issues/1514](https://github.com/firasdib/Regex101/issues/1514)
+
+## Version 5.2.0 - 16th of February, 2021
+
+1. Added list substitution feature [https://github.com/firasdib/Regex101/issues/1410](https://github.com/firasdib/Regex101/issues/1410)
+
+2. Increased font sizes throughout the app
+
+3. Improved contrast ratio for dark theme
+
+4. Fixed light theme flashing when loading website and dark theme was previously selected
+
+5. Improved tooltip for conditionals [https://github.com/firasdib/Regex101/issues/1503](https://github.com/firasdib/Regex101/issues/1503)
+
+6. Signing in will now save the state of the regex editor and restore it upon returning to the website.
+
+7. Revamped unit test area [https://github.com/firasdib/Regex101/issues/1090](https://github.com/firasdib/Regex101/issues/1090)
+
+8. Added new shortcuts. Hit `?` when not inside an editor. [https://github.com/firasdib/Regex101/issues/1088](https://github.com/firasdib/Regex101/issues/1088)
+
+9. Improve text selection color
+
+10. Increased the regex debugger domain to [0, 200] by default, instead of [0, 50]
+
+11. Fix substitution area running match on mount with invalid substitution string
+
+12. Fixed regex parser regressions
+
+13. Switched monospace font to roboto mono
+
+## Version 5.1.8 - 11th of February, 2021
+
+1. Updated the display of the quiz statistics
+
+2. Added method to revalidate quiz entries when the tests change
+
+3. Fixed explanation for the `A` flag for PCRE/PCRE2 [https://github.com/firasdib/Regex101/issues/1498](https://github.com/firasdib/Regex101/issues/1498)
+
+4. Fixed an issue where codemirror would cause a layout shift when initially rendered
+
+5. Made JS `y` flag and PCRE `A` flag interchange when switching flavors [https://github.com/firasdib/Regex101/issues/1499](https://github.com/firasdib/Regex101/issues/1499)
+
+6. Fix issue where the toolbar for the unit tests was shrunk down
+
+7. Automatically switch to the unit test pane if there is no test/substitution string [https://github.com/firasdib/Regex101/issues/1502](https://github.com/firasdib/Regex101/issues/1502)
+
+## Version 5.1.2 - 8th of February, 2021
+
+1. Fixed regression in match highlighter [https://github.com/firasdib/Regex101/issues/1495](https://github.com/firasdib/Regex101/issues/1495)
+
+2. Fixed issue where save modal would not highlight the value
+
+3. Fixed issue where copy buttons would stop working
+
+## Version 5.1.0 - 8th of February, 2021
+
+1. Add code splitting
+    - Split out large dependencies
+    - Conditionally load polyfills
+    - Lazy load certain components
+
+    This might result in a few more quirks and bugs, but they will be ironed out with time.
+    Please report any findings on [github](https://github.com/firasdib/Regex101/issues)
+
+2. Remove large (unnecessary) dependencies
+
+    Bundle size for initial load has been shrunk by around 30% with the above change.
+
+3. Update PCRE2 to solve issue of number parsing (PHP and other implementers will have to do the same eventually)
+
+4. Full rewrite of many components to improve accessibility
+    - Tabbing is context aware
+    - Navigation of entire site through tab
+    - Aria tags added (not exhaustive, will be ongoing work)
+
+    Hopefully this improves the experience for everyone!
+
+5. Fixed issue where test area would not accurately highlight all strings
+
+6. Fixed an issue where the markdown editors toolbar did not work as intended
+
+7. Fixes links in quickref [https://github.com/firasdib/Regex101/issues/1489](https://github.com/firasdib/Regex101/issues/1489)
+
+8. Removes duplicate entry in quickref [https://github.com/firasdib/Regex101/issues/1493](https://github.com/firasdib/Regex101/issues/1493)
+
+9. Fixed issue where closing substitution area did not properly update the match coloring
+
+10. Adds preloading to fonts and web worker
+
+
+## Version 5.0.21 - 3rd of February, 2021
+
+1. Fixed infinite loop when loading the page and subst box was open
+
+2. Improve screen readers and SEO
+
+## Version 5.0.19 - 2nd of February, 2021
+
+1. Fix substitution area not triggering initially when opened
+
+2. Fix subst indicator clipping
+
+3. Fix subst area sometimes using invalid regex when performing subst (using cache is great...)
+
+4. Fix issue where test input would not reset focus state
+
+## Version 5.0.16 - 31st of January, 2021
+
+1. Fixed backend not allowing users to unfavorite permalinks
+
+2. Added ability to edit permalink details if signed in for favorited expressions through the save modal
+
+3. Adjusted color for the resize strip in the right sidebar
+
+4. Fixes validation of (?P>...) in PCRE
+
+5. Added check to ensure null bytes aren't included in the regex for PCRE
+
+## Version 5.0.13 - 30th of January, 2021
+
+1. Add check to ensure numbers following backslashes are not too large
+
+2. Update the default flavor to PCRE2
+
+3. Explain `\s` and `\S` for javascript using unicode tokens instead of literal text
+
+4. Fix substitution not running if test string was empty
+
+5. Add support for non atomic lookarounds
+
+## Version 5.0.12 - 28th of January, 2021
+
+1. Fixed issue where the same input pasted into the regex input would not highlight syntax.
+
+2. Treats `$$` as escaped literal in PCRE2 subst string
+
+3. Fixed regression in `{m,n}` quantifier validation
+
+4. Fixed invalid backref parsing for pcre2 (`\80` to `\99` was interpreted as ocals and literals)
+
+5. Align the PCRE2 implementation with pcre2test wrt to empty matches at the end of the string
+
+6. Fix text input focus issue [https://github.com/firasdib/Regex101/issues/1482](https://github.com/firasdib/Regex101/issues/1482)
+
+7. Fix tags/titles not saved correctly
+
+8. Show delete link in save modal for users who are not signed in
+
+## Version 5.0.11 - 25th of January, 2021
+
+1. Fixed bug in regex parser [https://github.com/firasdib/Regex101/issues/1477](https://github.com/firasdib/Regex101/issues/1477)
+
+2. Added support for new PCRE2 features [https://github.com/firasdib/Regex101/issues/1476](https://github.com/firasdib/Regex101/issues/1476)
+
+3. Updated tests for quiz task 27
+
+4. Fix save modal not always selecting the generated url
+
+## Version 5.0.10 - 24th of January, 2021
+
+1. Patched numerous bugs that slipped through the initial release.
+
+2. Updated quiz task 11 and 27 (Thanks David!)
+
+3. Fixed issue with match timeout setting not working as intended
+
+4. Increased memory limits for PCRE, PCRE2 and Python.
+
+## Version 5.0.0 - 22th of January, 2021
+
+1. Rewrote entire backend to improve performance
+
+2. Reworked the account page; titles and tags are now associated with the entire
+permalink and not a specific version.
+
+3. Redesigned the save modal, it now shows the account information (if signed in) in the same view,
+and makes it easier to work with.
+
+4. Switched to new icons throughout the entire application
+
+5. Slight modifications to the general look and feel, such as flatter buttons and larger font sizes.
+
+6. Added support for PCRE2
+
+7. Dropped support for legacy browsers, approximately the following versions: Internet Explorer, Firefox <55, Chrome <60, Edge <16
+
+8. Reworked library entries: a permalink is now permanently associated with an account and the
+entry, and the owner can whenever they want update the version of that permalink which will reflect
+in the library. Hopefully this is not going to be abused, but if it is, the library will always
+default to the first version and never allow for an update.
+
+9. Titles and tags are now associated with the entire permalink and all versions within it.
+
+10. The default save functionality of the website has been changed, now a new permalink is created
+by default (using ctrl+s) and an update of the current workspace has to be explicit,
+by either clicking the menu item or using ctrl+shift+s.
+
+11. The regex quiz now utilizes the PCRE2 engine instead of PCRE1.
+Can you exploit this to your advantage?
+
+12. Multiple dependencies has been updated, which has resulted in a lot of behind-the-scenes work.
+This has resulted in general performance improvements, but nothing you are likely to experience.
+
+13. Squashed 20-30 different edge case bugs in the app and regex tokenizer.
+I will outline fixes of this nature in the future, but for now, take my word for it.
+
+14. The supported Python version is now indicated in the sidebar
+
+15. Reorganized settings
+
+16. Added a new setting that allows you to conditionally turn on/off step counting in supported
+flavors. This can dramatically improve performance in complex expressions.
+
+17. Fixed key binding bug which would present itself in the debugger.
+
+18. Added more tests to multiple quiz tasks.
+
+19. Implemented surgical fix to avoid odd tabbing behavior in debugger (and other similar modals)
+
+20. Added support for the # delimiter.
+
+21. Due to 2 and 8, the database had to be modified, and data had to be migrated.
+Some loss of data is to be expected, since not all the information from the previous model could
+fit in the new one, but there are extremely few individuals affected.
+This only affects titles and tags, not any saved expressions.
+
+22. Fixed autoit code generator
+
+23. Fixed parsing and validation of surrogate pairs in the editor
+
+24. Added a "whats new" button to the header
+
+25. Revised contrast of dark theme
+
+26. Increased font sizes slightly
+
+27. Improved performance of tooltips in the editor (and possible squashed a few bugs that would cause the app to crash)
+
+28. Rewrote large parts of the editor page (front page) and the regex parser. Hopefully I have not introduced (too many) new bugs...
+
+29. Substitution area has received some love. A new indicator was added, similar to the match functionality.
+
+30. Added PCRE2 native substitution (and the new syntax).
+
+31. Fixed bug with `\b` in substitution
